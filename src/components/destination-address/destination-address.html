@@ -1,0 +1,14 @@
+<form (ngSubmit)="onSubmit()">
+  <ion-list>
+    <ion-item>
+      <ion-label floating>
+        Enter you're destination
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="enteredAddress" name="e-address"></ion-input>
+    </ion-item>
+    <ion-item *ngFor="let destinaton of results" (click) = "selectDestination(destinaton)">
+      {{destinaton.formatted_address}}
+    </ion-item>
+  </ion-list>
+
+</form>

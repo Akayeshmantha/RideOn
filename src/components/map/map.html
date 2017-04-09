@@ -1,0 +1,13 @@
+<!--
+  Generated template for the Map component.
+
+  See https://angular.io/docs/ts/latest/api/core/index/ComponentMetadata-class.html
+  for more info on Angular 2 Components.
+-->
+
+<div class="wrapper">
+<div id="map"> </div>
+<pickup  [map]="map" [isPinSet]="isMapIdle" [isPickupRequested]="isPickRequested" [destination] = "destination" (updatedPickupLocation)="updatedPickupLocation($event)"></pickup>
+<available-cars [map]= "map" [isPickupRequested]="isPickRequested"></available-cars>
+<pickup-car [map]="map" [isPickupRequested]="isPickRequested" [pickupLocation]="currentLcation" [destination] = "destination"></pickup-car>
+</div>
