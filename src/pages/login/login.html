@@ -1,0 +1,72 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Join And Have Fun</ion-title>
+        <ion-buttons (click)="register()" end>
+            <button ion-button small outline>
+        Sign Up
+    </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content style="margin-top: 1px;">
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-input type="email" [(ngModel)]="Email" placeholder="Email Input"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-input [(ngModel)]="Password" type="password" placeholder="Password Input"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-md-8 style="margin-left:110px;">
+                <button (click)="login()" ion-button round outline style="width: 82px;height: 38px;">Sign In</button>
+            </ion-col>
+        </ion-row>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <ion-row>
+            <ion-col col-md-8 style="margin-left:123px;margin-top: 10px;">
+                <ion-fab middle>
+                    <button ion-fab mini><ion-icon name="share"></ion-icon></button>
+                    <ion-fab-list side="left">
+                        <button ion-fab (click)="loginWithTwitter()"><ion-icon name="logo-twitter"></ion-icon></button>
+                    </ion-fab-list>
+                    <ion-fab-list side="right">
+                        <button ion-fab (click)="loginWithFacebook()"><ion-icon name="logo-facebook"></ion-icon></button>
+                    </ion-fab-list>
+                    <ion-fab-list side="top">
+                        <button ion-fab (click)="loginWithGoogle()"><ion-icon name="logo-googleplus"></ion-icon></button>
+                    </ion-fab-list>
+                    <ion-fab-list side="bottom">
+                        <button ion-fab (click)="loginWithGit()"><ion-icon name="logo-github"></ion-icon></button>
+                    </ion-fab-list>
+                </ion-fab>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-md-6>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+
+
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+        <ion-buttons end>
+            <button ion-button small outline (click)="forgot()" ion-button style="width: 154px;height: 38px;">Forgot Password</button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-footer>
