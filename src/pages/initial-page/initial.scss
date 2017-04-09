@@ -1,0 +1,27 @@
+initial{
+    .init_body{
+        font-family:'Lucida Sans Unicode';
+        background: yellow;
+        font-style: bold;
+        
+        .grid_1{
+
+            margin-left: 20px;
+            .header_1{
+                margin-left: 59px;
+                font-size: 3.9rem;
+            }
+            .spinner_col{
+                margin-left: 117px;
+            }
+
+            .image_1{
+                background: transparent;
+            }
+
+            .header_2{
+                margin-left: 21px;
+            }
+        }
+    }
+}
