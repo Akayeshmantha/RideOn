@@ -1,0 +1,83 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>Add Vehicle</ion-title>
+        <ion-buttons (click)="registerVehicle()" end>
+            <button ion-button small outline>
+        <ion-icon name="add"></ion-icon>
+    </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content style="margin-top: 1px;">
+    <ion-grid>
+        <ion-row style="margin-top: -46px;">
+            <ion-col>
+                <ion-item>
+                    <imagepick (uploadFile)="uploadFile($event)"></imagepick>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-list style="display: inherit;" radio-group [(ngModel)]="relationship">
+                <ion-col width-50>
+                    <ion-item>
+                        <ion-label>Taxi</ion-label>
+                        <ion-radio checked="true" value="taxi"></ion-radio>
+                    </ion-item>
+                </ion-col>
+
+                <ion-col width-50>
+                    <ion-item>
+                        <ion-label style="width: 97px;" end>Own Car</ion-label>
+                        <ion-radio checked="false" value="owncar"></ion-radio>
+                    </ion-item>
+                </ion-col>
+            </ion-list>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-input type="text" placeholder="Made In" [(ngModel)]="country"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-input type="text" placeholder="Model" [(ngModel)]="model"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-input type="text" placeholder="Vehicle No" [(ngModel)]="vehicleNo"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-input type="text" placeholder="Color" [(ngModel)]="color"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row style="margin-left: 8px;">
+            <ion-col>
+                <ion-item>
+                    <ion-label>A/C</ion-label>
+                    <ion-toggle [(ngModel)]="ac" color="danger"></ion-toggle>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-md-8 style="margin-left:110px;">
+                <button (click)="registerVehicle()" ion-button round outline style="width: 82px;height: 38px;">Register</button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

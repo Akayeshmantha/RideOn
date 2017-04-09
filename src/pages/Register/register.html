@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Sign Up</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content style="margin-top: 1px;">
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-input type="text" [(ngModel)]="userName" placeholder="User Name Input"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-input type="email" [(ngModel)]="email" placeholder="Email Input"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-input type="password" [(ngModel)]="password" placeholder="Password Input"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-md-8 style="margin-left:110px;">
+                <button (click)="register()" ion-button round outline style="width: 82px;height: 38px;">Sign Up</button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

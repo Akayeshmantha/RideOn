@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar>
+      <ion-buttons start>
+        <button  ion-button [hidden]="!isPickRequested" (click)="cancelPickup()">
+          <ion-icon name="arrow-back"></ion-icon> Cancel
+        </button>
+      </ion-buttons>
+    <ion-title>
+      Hey Dude
+    </ion-title>
+     <ion-buttons end>
+        <button ion-button (click)="map.centeLocation()">
+          <ion-icon name="navigate"></ion-icon> 
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="home">
+  <div class="map-wrapper">
+  <map #map [isPickRequested]= "isPickRequested" [destination] = "destination">
+    <!--<pickup></pickup>-->
+     </map>
+     <destination-address [hidden]= "!isRiderPickedUp" (newDest)= "setDestination($event)"></destination-address>
+  </div>
+
+  <div class="bottom request-controls">
+    <ion-row>
+        <ion-col width-50>
+            <button ion-button color="light" block>
+              <ion-icon name="card"></ion-icon>
+              Visa **34
+            </button>
+        </ion-col>
+         <ion-col width-50>
+            <button ion-button color="light" block>
+              <ion-icon name="cash"></ion-icon>
+               Cash
+            </button>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col>
+            <button [hidden]="isPickRequested" ion-button block (click)="confirmPickup()">
+              Request Pickup
+            </button>    
+            <button [hidden]="!isPickRequested" ion-button block (click)="cancelPickup()">
+              Cancel Pickup
+            </button>        
+        </ion-col>
+    </ion-row>
+        <ion-row>
+        <ion-col>
+          Approximately {{timeTillArrival}} minutes away            
+        </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
+
+
