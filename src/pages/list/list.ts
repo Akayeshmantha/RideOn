@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
 import { NavController, NavParams } from 'ionic-angular';
-
+import * as firebase from 'firebase';
+import { AngularFire } from 'angularfire2';
 import { ItemDetailsPage } from '../item-details/item-details';
 
 

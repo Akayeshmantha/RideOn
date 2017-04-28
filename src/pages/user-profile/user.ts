@@ -11,8 +11,9 @@ import {ItemCreatePage} from '../../components/imagePicker/image';
 
 export class UserPage {
   
+  private added: boolean
   constructor(public navCtrl: NavController,private viewCtrl: ViewController) {
- 
+    this.added = false;
   }
   
   

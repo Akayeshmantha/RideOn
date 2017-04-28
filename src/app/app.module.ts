@@ -18,6 +18,8 @@ import {PickupComponent} from '../components/pickup/pickup';
 import {MapDirective} from '../components/map/map';
 import {AvailableCarsComponent} from '../components/available-cars/available-cars';
 import {PickupCarComponent} from '../components/pickup-car/pickup-car';
+import {ViewVehicles} from '../pages/view-vehicles/view';
+import {VehicleDetailsPage} from '../pages/view-vehicledetails/vehicledetails';
 import {AngularFireModule} from 'angularfire2';
 import {DestinationAddressComponent} from '../components/destination-address/destination-address';
 const firebaseConfig = {
@@ -32,9 +34,11 @@ const firebaseConfig = {
     MyApp,
     HelloIonicPage,
     ItemDetailsPage,
+    VehicleDetailsPage,
     ListPage,
     Loader,
     InitialPage,
+    ViewVehicles,
     LoginPage,
     RegisterPage,
     ForgotPage,
@@ -59,7 +63,9 @@ const firebaseConfig = {
     HelloIonicPage,
     ItemDetailsPage,
     ListPage,
+    ViewVehicles,
     Loader,
+    VehicleDetailsPage,
     InitialPage,
     LoginPage,
     RegisterPage,

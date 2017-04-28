@@ -2,8 +2,8 @@
     <ion-navbar>
         <ion-title>Join And Have Fun</ion-title>
         <ion-buttons (click)="register()" end>
-            <button ion-button small outline>
-        Sign Up
+            <button ion-button small color="dark" clear>
+           <span style="font-size:13px"> Sign Up </span>
     </button>
         </ion-buttons>
     </ion-navbar>
@@ -27,13 +27,14 @@
         </ion-row>
         <ion-row>
             <ion-col col-md-8 style="margin-left:110px;">
-                <button (click)="login()" ion-button round outline style="width: 82px;height: 38px;">Sign In</button>
+                <button (click)="login()" ion-button clear style="width: 82px;height: 38px;">Sign In</button>
             </ion-col>
         </ion-row>
         <br/>
         <br/>
         <br/>
         <br/>
+        <div>
         <ion-row>
             <ion-col col-md-8 style="margin-left:123px;margin-top: 10px;">
                 <ion-fab middle>
@@ -53,6 +54,7 @@
                 </ion-fab>
             </ion-col>
         </ion-row>
+        </div>
         <ion-row>
             <ion-col col-md-6>
             </ion-col>
@@ -66,7 +68,7 @@
 <ion-footer>
     <ion-toolbar>
         <ion-buttons end>
-            <button ion-button small outline (click)="forgot()" ion-button style="width: 154px;height: 38px;">Forgot Password</button>
+            <button ion-button small color="dark" clear (click)="forgot()" ion-button style="width: 154px;height: 38px;">Forgot Password</button>
         </ion-buttons>
     </ion-toolbar>
 </ion-footer>

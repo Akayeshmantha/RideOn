@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 
 import { Platform, MenuController, Nav } from 'ionic-angular';
 
-import { StatusBar, Splashscreen } from 'ionic-native';
+import { StatusBar, Splashscreen, Network } from 'ionic-native';
 
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ListPage } from '../pages/list/list';
@@ -11,6 +11,8 @@ import {RegisterVehicle} from '../pages/registerVehicle/regsterVehicl';
 import {UserPage} from '../pages/user-profile/user';
 import {MyRidesPage} from '../pages/my-rides/myrides';
 import {HomePage} from '../pages/home/home';
+import {ViewVehicles} from '../pages/view-vehicles/view';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -26,6 +28,9 @@ export class MyApp {
     public menu: MenuController
   ) {
     this.initializeApp();
+    Network.onDisconnect().subscribe(() => {
+      alert("Please Hold for a moment");
+    })
 
     // set our app's pages
     this.pages = [
@@ -34,6 +39,7 @@ export class MyApp {
       {title: 'Register Vehicle' , component:RegisterVehicle},
       {title: 'User Profile' , component: UserPage},
       {title: 'My Rides' , component: HomePage},
+      {title:'View My Vehicles', component:ViewVehicles}
       
     ];
   }

@@ -8,7 +8,7 @@ import { AngularFire } from 'angularfire2';
 
 @Component({
   selector: 'registervehicle',
-  templateUrl: 'registervehicle.html'
+  templateUrl: 'registerVehicle.html'
 })
 
 

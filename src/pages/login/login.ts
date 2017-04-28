@@ -71,6 +71,7 @@ export class LoginPage {
       provider:AuthProviders.Github,
       method:AuthMethods.Popup
     }).then((response) => {
+      debugger
       let user = {
         email: response.auth.email,
         picture: response.auth.photoURL,
@@ -80,6 +81,7 @@ export class LoginPage {
       this.navCtrl.push(HelloIonicPage);
       this.navCtrl.setRoot(HelloIonicPage);
     }).catch((error) => {
+        debugger
         console.log(error);
         this.presentAlert("Login Fail","Authentication Error");
     })
