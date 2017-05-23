@@ -1,7 +1,15 @@
-user{
-    .icons-panel{
-        .larger{
-            font-size:xx-large ;
+user {
+    .icons-panel {
+        .larger {
+            font-size: 3.2em;
         }
+    }
+    .item {
+        background-color: transparent;
+        width: 370px;
+    }
+    .item-md ion-avatar img {
+        width: 60px;
+        height: 60px;
     }
 }

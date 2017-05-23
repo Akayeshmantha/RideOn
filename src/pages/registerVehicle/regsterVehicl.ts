@@ -49,7 +49,7 @@ export class RegisterVehicle {
           this.navCtrl.setRoot(HelloIonicPage);
           this.presentAlert("Success", "Youre vehicle registered succeefully");
         }).catch((er) => {
-          this.presentAlert("Error", "Youre vehicle registered succeefully");
+          this.presentAlert("Error", "Error in registering vehicles");
         });
     }
 

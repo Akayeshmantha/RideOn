@@ -1,58 +1,159 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
+    <ion-navbar>
+        <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title >User Profile</ion-title>
-  </ion-navbar>
+        <ion-title>User Profile</ion-title>
+    </ion-navbar>
 </ion-header>
 
-<ion-content style="margin-top: 1px;">
- <ion-grid>
-  <ion-row style="margin-top: -46px;background: orange;" >
-    <ion-col >
-        <ion-item style="background: orange;">
-            <imagepick></imagepick>
-            
-            <p style="margin-left: 100px;">
-            <label style="font-size: 14px;">Kaveendra O.</label>
-            <br/>
-            <label style="font-size: 11px;">Malabe, Colombo</label>
-            <br/>
-            <label style="font-size: 11px;">Male/ 26 years</label>
-            <br/>
-            <label>
+<ion-content *ngIf="loading">
+</ion-content>
+<ion-content *ngIf="!added && !loading" style="margin-left: 13px;margin-top: 10px;">
+    <!--<ion-content style="margin-top: 1px;">-->
+    <form (ngSubmit)="onSubmit()">
+        <ion-list style="width:384px;background-color: orange;height: 706px;">
+            <ion-item>
+                <imagepick (uploadFile)="uploadFile($event)"></imagepick>
+            </ion-item>
+            <ion-item>
+                <ion-label floating style="color: white;">
+                    Name
+                </ion-label>
+                <ion-input type="text" [(ngModel)]="name" name="name"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label floating style="color: white;">
+                    Address
+                </ion-label>
+                <ion-input type="text" [(ngModel)]="address" name="address"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label floating style="color: white;">
+                    Age
+                </ion-label>
+                <ion-input type="text" [(ngModel)]="age" name="age"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label floating style="color: white;">
+                    About u're self
+                </ion-label>
+                <ion-textarea type="text" [(ngModel)]="about" name="about"></ion-textarea>
+            </ion-item>
+            <ion-item>
+                <ion-label floating style="color: white;">
+                    Phone No
+                </ion-label>
+                <ion-input type="text" [(ngModel)]="phoneNo" name="phone"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label floating style="color: white;">
+                    Email
+                </ion-label>
+                <ion-input type="text" [(ngModel)]="email" name="email"></ion-input>
+            </ion-item>
+            <ion-item>
+                <button type="submit" ion-button style="width: 82px;height: 38px;">Submit</button>
+            </ion-item>
+            <!--<ion-item>
+                <ion-label style="color: white;margin-left: 119px;">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star-outline"></ion-icon>
+                </ion-label>
+            </ion-item>-->
+
+        </ion-list>
+    </form>
+
+</ion-content>
+<ion-content *ngIf="added && !loading" style="margin-left: 13px;margin-top: 10px;">
+    <ion-list style="width:384px;background-color: orange;height: 286px;margin-top: 86px">
+        <ion-item>
+            <ion-avatar style="margin-left: 146px;">
+                <img [src]="icon" width="60px" height="60px" />
+            </ion-avatar>
+        </ion-item>
+
+        <ion-item>
+            <ion-label style="color: white;">
+                {{user.name}}
+            </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-label style="color: white;">
+                {{user.address}}
+            </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-label style="color: white;">
+                {{user.age}}
+            </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-label style="color: white;margin-left: 119px;">
                 <ion-icon name="star"></ion-icon>
                 <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>                
+                <ion-icon name="star"></ion-icon>
                 <ion-icon name="star"></ion-icon>
                 <ion-icon name="star-outline"></ion-icon>
-            </label>
-            </p>
+            </ion-label>
         </ion-item>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col>
-        <label style="color: orange">About me.. </label>
-    </ion-col>
-  </ion-row>
-  <ion-row style="margin-left: 10px; border:black;">
-    <ion-col width-85>
-        <p>I'm a student of SLIIT and regularly trveling from 
-            Malabe to SLIIT.Love to meet new people in my life.</p>
-    </ion-col>
-  </ion-row>
-  <ion-row class="icons-panel" style="margin-left: 94px;">
-    <ion-col width-25>
-                <ion-icon name="call" class="larger"></ion-icon>
-    </ion-col>
-     <ion-col width-25>
-                <ion-icon name="mail" class="larger"></ion-icon>
-    </ion-col>
-     <ion-col width-25>
-                <ion-icon name="heart" class="larger"></ion-icon>
-    </ion-col>
-  </ion-row>
- </ion-grid>
+    </ion-list>
+    <ion-item>
+        <ion-label style="color: white;margin-left: 119px;">
+            {{user.about}}
+        </ion-label>
+    </ion-item>
+    <ion-card style="width:384px;margin-left: -1px;">
+        <ion-card-content>
+            <ion-item>
+                <ion-row class="icons-panel">
+                    <ion-col width-30>
+                        <ion-icon name="call" (click)="call(user.phoneNo)" class="larger" start></ion-icon>
+                    </ion-col>
+                    <ion-col width-30>
+                        <ion-icon name="mail" class="larger"></ion-icon>
+                    </ion-col>
+                    <ion-col width-30>
+                        <ion-icon name="heart" class="larger"></ion-icon>
+                    </ion-col>
+                </ion-row>
+            </ion-item>
+        </ion-card-content>
+    </ion-card>
 </ion-content>
+<!--<br/>
+                        <label style="font-size: 11px;">Malabe, Colombo</label>
+                        <br/>
+                        <label style="font-size: 11px;">Male/ 26 years</label>
+                        <br/>
+                        <label>
+                          
+                        </label>-->
+
+<!--
+        <ion-row>
+            <ion-col>
+                <label style="color: orange">About me.. </label>
+            </ion-col>
+        </ion-row>
+        <ion-row style="margin-left: 10px; border:black;">
+            <ion-col width-85>
+                <p>I'm a student of SLIIT and regularly trveling from Malabe to SLIIT.Love to meet new people in my life.</p>
+            </ion-col>
+        </ion-row>
+        <ion-row class="icons-panel" style="margin-left: 94px;">
+            <ion-col width-25>
+                <ion-icon name="call" class="larger"></ion-icon>
+            </ion-col>
+            <ion-col width-25>
+                <ion-icon name="mail" class="larger"></ion-icon>
+            </ion-col>
+            <ion-col width-25>
+                <ion-icon name="heart" class="larger"></ion-icon>
+            </ion-col>
+        </ion-row>-->
+<!--</ion-content>-->

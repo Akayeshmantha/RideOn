@@ -13,19 +13,24 @@
 </ion-header>
 
 <ion-content>
-  <ion-list ng-if="filled">
-    <button ion-item *ngFor="let item of item2" (click)="itemTapped($event, item)">
-     
-      <div class="item-note">
+    <ion-list ng-if="filled">
+        <button ion-item *ngFor="let item of item2" (click)="itemTapped($event, item)">
+          <ion-item>
+            <ion-avatar item-left>
+              <img [src]="item.icon">
+            </ion-avatar>
+            <h2> {{item.vid}}</h2>
+            <!--<p>Ugh. As if.</p>-->
+          </ion-item>
+      <!--<div class="item-note">
       <ion-icon name="{{item.icon}}" item-left><img [src]="item.icon" width="60px" height="60px" /></ion-icon>
       </div>
       <div class="item-note" item-right>
         {{item.vid}}
-      </div>
+      </div>-->
     </button>
-  </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.model}}</b>
-  </div>
+    </ion-list>
+    <div *ngIf="selectedItem" padding>
+        You navigated here from <b>{{selectedItem.model}}</b>
+    </div>
 </ion-content>
-
